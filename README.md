@@ -16,17 +16,26 @@ github-pages/
 
 ## 一、推送到 GitHub 并开启 Pages
 
-在本目录下执行（把 `<你的用户名>`、`<仓库名>` 换成自己的）：
+本目录已经初始化过本地 Git 仓库并完成一次提交（提交哈希可用 `git log` 查看），
+你只需要接上远程仓库然后推送：
 
 ```bash
-# 首次：初始化仓库并推送
-git init
-git add .
-git commit -m "feat: 手机端待办同步台（Win11 任务栏组件配套）"
-git branch -M main
+cd github-pages          # 如果还没进入这个目录
 git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git remote -v            # 确认远程地址
 git push -u origin main
 ```
+
+> 如果希望这次提交的作者是你自己，可以先配置 Git 身份再修正作者：
+>
+> ```bash
+> git config user.name "<你的名字>"
+> git config user.email "<你的邮箱>"
+> git commit --amend --reset-author --no-edit
+> ```
+>
+> 如果不想用现成的本地仓库：删掉 `github-pages/.git` 目录，再按传统流程
+> `git init` → `git add .` → `git commit -m "init"` → `git branch -M main` 重新来一遍。
 
 然后在 GitHub 仓库页面操作：
 
